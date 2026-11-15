@@ -1,0 +1,18 @@
+# Eval floors. Hard gates (leakage, PII, inference-only, system prompt/injection) are always
+# zero-tolerance and are not configured here.
+#
+# A new project has no baseline yet, so only the hard gates are enforced. After the first full
+# run, save it as the baseline and set the floors:
+#   uv run python -m evals.run --suite all --save-baseline evals/baselines/iteration-1.json
+#   uv run python -m evals.compare make-baseline --results evals/results/<that run>.json \
+#       --suite regression --out evals/baselines/iteration-1-regression.json
+# Each floor starts at the baseline minus a small budget for model non-determinism (2-5 items).
+# RATCHET ONLY: raise a floor when a merged iteration beats it; never lower one. Changing this
+# file needs a CHANGELOG entry (governance check).
+suites:
+  regression:  # PR gate
+    baseline: null   # e.g. evals/baselines/iteration-1-regression.json
+    floors: {}       # e.g. {retrieval_hit_at_k: 0.95, must_include: 0.90, must_not_include: 1.00}
+  all:  # weekly full suite
+    baseline: null
+    floors: {}

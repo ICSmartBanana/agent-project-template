@@ -1,0 +1,19 @@
+# The tenant list is data, not code. Replace these sample tenants with your own.
+#
+# shared_tenant: a knowledge base every client tenant can read (playbooks, shared guidance).
+# tenants: one entry per client. For each client:
+#   display_name: shown in the UI and in the system prompt ({client_name})
+#   identifiers:  names that identify this client. If any appears in another client's answer,
+#                 the leakage gate fails.
+#   canary:       a unique string in exactly one of this client's documents. Isolation tests prove
+#                 no other client can retrieve it.
+shared_tenant: shared
+tenants:
+  tenant_a:
+    display_name: Tenant A (Northwind Logistics)
+    identifiers: [Northwind Logistics, Northwind]
+    canary: CANARY-TENANT-A-7Q4K
+  tenant_b:
+    display_name: Tenant B (Southfield Foods)
+    identifiers: [Southfield Foods, Southfield]
+    canary: CANARY-TENANT-B-2M9X

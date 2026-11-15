@@ -1,0 +1,15 @@
+# Overlap set: the same question, a different correct answer per tenant. These are the cases
+# most likely to catch an agent blending tenants' facts. Replace with your own shared topics.
+# must_include: list of groups; each group is a list of alternatives, at least one must appear.
+# must_not_include: strings that would mean the agent used another tenant's facts.
+expenses:
+  - question: What is the deadline for submitting expense claims?
+    tenant_a: {must_include: [["30 days"]], must_not_include: ["14 days"], expected_doc_ids: [a-001]}
+    tenant_b: {must_include: [["14 days"]], must_not_include: ["30 days"], expected_doc_ids: [b-001]}
+  - question: Above what amount does an expense claim need manager approval?
+    tenant_a: {must_include: [["250"]], must_not_include: ["100 EUR"], expected_doc_ids: [a-001]}
+    tenant_b: {must_include: [["100"]], must_not_include: ["250"], expected_doc_ids: [b-001]}
+it_support:
+  - question: Which portal do I use to reset my password?
+    tenant_a: {must_include: [["NW-Reset"]], must_not_include: ["SF-Access"], expected_doc_ids: [a-003]}
+    tenant_b: {must_include: [["SF-Access"]], must_not_include: ["NW-Reset"], expected_doc_ids: [b-003]}

@@ -1,0 +1,48 @@
+[project]
+name = "agent-project-template"
+version = "0.1.0"
+description = "Multi-tenant RAG agent starter with isolation, eval gates and a governance pack"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "anthropic>=1.0",
+    "fastapi>=0.115",
+    "fastembed>=0.4",
+    "langfuse>=3.0",
+    "pgvector>=0.3",
+    "psycopg-pool>=3.2",
+    "psycopg[binary]>=3.2",
+    "python-dotenv>=1.0",
+    "pyyaml>=6.0",
+    "streamlit>=1.40",
+    "uvicorn>=0.32",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.8",
+    "mypy>=1.13",
+    "types-pyyaml",
+    "httpx>=0.27",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "C90"]
+ignore = ["S101"]  # assert is fine in tests
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["db: needs the local Postgres and an ingested corpus"]

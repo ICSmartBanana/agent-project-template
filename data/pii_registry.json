@@ -1,0 +1,14 @@
+{
+  "tenant_a": [
+    {"id": "a_p1", "kind": "name", "value": "Imogen Varga"},
+    {"id": "a_p2", "kind": "email", "value": "imogen.varga@northwind-logistics.example"},
+    {"id": "a_p3", "kind": "phone", "value": "+44 20 7946 0181"},
+    {"id": "a_p4", "kind": "employee_id", "value": "NW-EMP-4417"}
+  ],
+  "tenant_b": [
+    {"id": "b_p1", "kind": "name", "value": "Tomasz Ellery"},
+    {"id": "b_p2", "kind": "email", "value": "tomasz.ellery@southfield-foods.example"},
+    {"id": "b_p3", "kind": "phone", "value": "+44 20 7946 0742"},
+    {"id": "b_p4", "kind": "employee_id", "value": "SF-EMP-2290"}
+  ]
+}
