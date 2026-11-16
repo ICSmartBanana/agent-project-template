@@ -45,3 +45,7 @@ It was extracted from `etrm-knowledge-agent`, the first agent built to these sta
 ## Commands
 
 See [CLAUDE.md](CLAUDE.md).
+
+## License
+
+[MIT](LICENSE). Replace or keep it in repos you create from this template.
